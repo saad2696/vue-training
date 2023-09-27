@@ -84,29 +84,114 @@
 
     <p>-------------------------------------Ref in VUE JS --------------------------------------</p>
     <RefComp></RefComp>
+    <SimpleForm></SimpleForm>
+    <Computed></Computed>
+    <Watchers></Watchers>
+    <Slots name="saad">
+        <h1>Hello there </h1>
+    </Slots>
+
+    <p>--------------------------------------Slots multi---------------------------</p>
+
+    <MultiSlots>
+        <template v-slot:header>
+            <h3>Phone</h3>
+        </template>
+
+        <template v-slot:content>
+            <h3>iPhone 15 pro max</h3>
+        </template> <template v-slot:footer>
+            <button>Buy now</button>
+        </template>
+
+    </MultiSlots>
+
+    <br>
+
+    <MultiSlots>
+        <template v-slot:header>
+            <h3>Laptop</h3>
+        </template>
+
+        <template v-slot:content>
+            <h3>Macbook Pro 2022</h3>
+        </template> <template v-slot:footer>
+            <button>Buy now</button>
+        </template>
+
+    </MultiSlots>
+    <br>
+
+    <MultiSlots>
+        <template v-slot:header>
+            <h3> Headphones </h3>
+        </template>
+
+        <template v-slot:content>
+            <h3>Airpods max</h3>
+        </template> <template v-slot:footer>
+            Out of stock
+        </template>
+
+    </MultiSlots>
+
+    <p>--------------------------------------Dynamic component-------------------------</p>
+
+    <button @click="tab='Java'">Load Java</button>
+    <button @click="tab='Node'">Load Node</button>
+    <button @click="tab='Php'">Load PHP</button>
+    <button @click="tab='C'">Load C</button>
+
+    <component :is="tab" />
+
+    <p>--------------------------------------TelePort Component-------------------------</p>
 
 </div>
+
+<Teleport to="#footer">
+    <FooterBottom />
+</Teleport>
 </template>
 
 <script>
 import Child from './Child.vue'
 import User from './User.vue'
 import RefComp from './RefComp.vue'
+import SimpleForm from './SimpleForm.vue'
+import Computed from './Computed.vue'
+import Watchers from './Watchers.vue'
+import Slots from './Slots.vue'
+import MultiSlots from './MultiSlots.vue'
+import Java from '../components/dynamic-components/Java.vue'
+import Php from '../components/dynamic-components/Php.vue'
+import Node from '../components/dynamic-components/Node.vue'
+import C from '../components/dynamic-components/C.vue'
+import FooterBottom from './FooterBottom.vue'
 
 export default {
     name: 'HomeComp',
     components: {
-    Child,
-    User,
-    RefComp
-},
+        Child,
+        User,
+        RefComp,
+        SimpleForm,
+        Computed,
+        Watchers,
+        Slots,
+        MultiSlots,
+        Java,
+        Node,
+        Php,
+        C,
+        FooterBottom
+    },
     props: {
         name: String
     },
     data() {
         return {
             lastName: 'Ahmed',
-            userName : null,
+            userName: null,
             count: 0,
             email: null,
             password: null,
@@ -114,6 +199,7 @@ export default {
             tech: ['java', 'php', 'node', 'ROR'],
             profession: null,
             isMyDivCool: true,
+            tab: 'Java',
             user: [{
                     name: 'Saad',
                     title: 'Software Engineer'
@@ -179,7 +265,7 @@ export default {
             alert(`Email ${this.email}, Password ${this.password}`)
         },
         getUserName(name) {
-           this.userName = name 
+            this.userName = name
         }
     }
 }
