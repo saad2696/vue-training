@@ -146,6 +146,15 @@
 
     <p>--------------------------------------TelePort Component-------------------------</p>
 
+    <p>--------------------------------------Before Life cycle-------------------------</p>
+
+    <BeforeCreated></BeforeCreated>
+
+    <p>--------------------------------------routing basic-------------------------</p>
+    <router-link :to="{ path: '/helloWorld'}">
+        Route me
+    </router-link>
+
 </div>
 
 <Teleport to="#footer">
@@ -167,6 +176,7 @@ import Php from '../components/dynamic-components/Php.vue'
 import Node from '../components/dynamic-components/Node.vue'
 import C from '../components/dynamic-components/C.vue'
 import FooterBottom from './FooterBottom.vue'
+import BeforeCreated from './lifecycle-methods/BeforeCreated.vue'
 
 export default {
     name: 'HomeComp',
@@ -183,7 +193,8 @@ export default {
         Node,
         Php,
         C,
-        FooterBottom
+        FooterBottom,
+        BeforeCreated
     },
     props: {
         name: String

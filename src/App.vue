@@ -1,19 +1,18 @@
 <template>
 <img alt="Vue logo" src="./assets/logo.png">
-<HelloWorld msg="Welcome Saad to vue js world" />
-<HomeComp name="Saad"/>
+<!-- <HelloWorld msg="Welcome Saad to vue js world" />
+<HomeComp name="Saad"/> -->
+<router-view></router-view>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import HomeComp from './components/Home.vue';
-
+// import HelloWorld from './components/HelloWorld.vue'
+// import HomeComp from './components/Home.vue';
 export default {
     name: 'App',
     components: {
-        HelloWorld,
-        HomeComp
-    }
+  
+
+}
 }
 </script>
 
